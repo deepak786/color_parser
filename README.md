@@ -64,4 +64,4 @@ There are methods available for String representation as well as for values to u
 
 # Working Demo:
 check the working demo at:
-
+https://deepak786.github.io/demo-color-parser/
