@@ -102,7 +102,7 @@ class ColorParser {
     List<num> hsl = _calculateHSL(_color.red, _color.green, _color.blue);
     List<num> cmyk = _calculateCMYK(_color.red, _color.green, _color.blue);
 
-    _hue = num.parse(hwb[0].toStringAsFixed(0));
+    _hue = num.parse(hsl[0].toStringAsFixed(0));
     _whiteness = num.parse(hwb[1].toStringAsFixed(2));
     _blackness = num.parse(hwb[2].toStringAsFixed(2));
     _sat = num.parse(hsl[1].toStringAsFixed(2));
@@ -146,9 +146,9 @@ class ColorParser {
     num h, s, l;
 
     List<num> rgb = [];
-    rgb[0] = red / 255;
-    rgb[1] = green / 255;
-    rgb[2] = blue / 255;
+    rgb.add(red / 255);
+    rgb.add(green / 255);
+    rgb.add(blue / 255);
 
     num min = rgb[0];
     num max = rgb[0];
