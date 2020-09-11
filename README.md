@@ -24,7 +24,7 @@ parser = ColorParser.hex('#00bfff');
 // using ARGB, A = alpha
 parser = ColorParser.argb(255, 0, 191, 255);
 
-// using ARGO, O = opacity
+// using RGBO, O = opacity
 parser = ColorParser.rgbo(0, 191, 255, 1);
 
 // using color value
