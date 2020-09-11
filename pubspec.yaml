@@ -1,8 +1,8 @@
 name: color_parser
-description: A new Flutter package project.
+description: A packgae to parse the color.
 version: 0.0.1
-author:
-homepage:
+author: Deepak Goyal<er.deepakgoyal786@gmail.com>
+homepage: https://github.com/deepak786/color_parser
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
