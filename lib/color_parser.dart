@@ -91,8 +91,11 @@ class ColorParser {
 
   /// get the object of this class using hex color code
   ColorParser.hex(String hexCode) {
-    this._color =
-        new Color(int.parse(hexCode.substring(1, 7), radix: 16) + 0xFF000000);
+    bool startsWithHash = hexCode.startsWith("#");
+    this._color = new Color(int.parse(
+            hexCode.substring(startsWithHash ? 1 : 0, startsWithHash ? 7 : 6),
+            radix: 16) +
+        0xFF000000);
     _calculateFromRGB();
   }
 
