@@ -1,6 +1,6 @@
 name: color_parser
 description: A package to parse the color. It is inspired by the JS library https://www.w3schools.com/lib/w3color.js
-version: 0.0.2
+version: 0.0.3
 author: Deepak Goyal<er.deepakgoyal786@gmail.com>
 homepage: https://github.com/deepak786/color_parser
 
