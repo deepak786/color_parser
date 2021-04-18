@@ -1,12 +1,11 @@
 name: color_parser
 description: A package to parse the color. It is inspired by the JS library https://www.w3schools.com/lib/w3color.js
 version: 0.0.3
-author: Deepak Goyal<er.deepakgoyal786@gmail.com>
 homepage: https://github.com/deepak786/color_parser
 
 environment:
   sdk: '>=2.12.0 <3.0.0'
-  flutter: ">=1.17.0 <2.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
