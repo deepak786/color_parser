@@ -5,7 +5,7 @@ author: Deepak Goyal<er.deepakgoyal786@gmail.com>
 homepage: https://github.com/deepak786/color_parser
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
   flutter: ">=1.17.0 <2.0.0"
 
 dependencies:
