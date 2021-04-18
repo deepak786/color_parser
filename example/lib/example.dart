@@ -7,8 +7,8 @@ class Example extends StatefulWidget {
 }
 
 class _ExampleState extends State<Example> {
-  ColorParser _parser;
-  TextEditingController _controller;
+  ColorParser? _parser;
+  TextEditingController? _controller;
   String _error = "";
 
   @override
@@ -23,7 +23,7 @@ class _ExampleState extends State<Example> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller?.dispose();
     super.dispose();
   }
 
@@ -31,7 +31,7 @@ class _ExampleState extends State<Example> {
   void _parseColor() {
     try {
       setState(() {
-        _parser = ColorParser.hex(_controller.text);
+        _parser = ColorParser.hex(_controller!.text);
         _error = "";
       });
     } catch (e) {
@@ -130,7 +130,7 @@ class _ExampleState extends State<Example> {
 
     return Column(
       children: [
-        getRow("Name", _parser.toName()),
+        getRow("Name", _parser!.toName() ?? ""),
         divider(),
         Padding(
           padding: const EdgeInsets.only(top: 5, bottom: 5),
@@ -155,7 +155,7 @@ class _ExampleState extends State<Example> {
                     child: SizedBox(
                       width: 100,
                       height: 100,
-                      child: Container(color: _parser.getColor()),
+                      child: Container(color: _parser!.getColor()),
                     ),
                   ),
                 ),
@@ -164,17 +164,17 @@ class _ExampleState extends State<Example> {
           ),
         ),
         divider(),
-        getRow("RGB", _parser.toRGBString()),
+        getRow("RGB", _parser!.toRGBString()),
         divider(),
-        getRow("Hex", _parser.toHex()),
+        getRow("Hex", _parser!.toHex()),
         divider(),
-        getRow("HSL", _parser.toHSLString()),
+        getRow("HSL", _parser!.toHSLString()),
         divider(),
-        getRow("HWB", _parser.toHWBString()),
+        getRow("HWB", _parser!.toHWBString()),
         divider(),
-        getRow("CMYK", _parser.toCMYKString()),
+        getRow("CMYK", _parser!.toCMYKString()),
         divider(),
-        getRow("Ncol", _parser.toNcolString()),
+        getRow("Ncol", _parser!.toNcolString()),
       ],
     );
   }
