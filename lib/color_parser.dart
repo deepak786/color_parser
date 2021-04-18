@@ -11,37 +11,37 @@ import 'color_names.dart';
 /// inspired from the JS https://www.w3schools.com/lib/w3color.js
 class ColorParser {
   /// color
-  Color _color;
+  Color? _color;
 
   /// hue
-  num _hue;
+  num? _hue;
 
   /// saturation
-  num _sat;
+  num? _sat;
 
   /// lightness
-  num _lightness;
+  num? _lightness;
 
   /// whiteness
-  num _whiteness;
+  num? _whiteness;
 
   /// blackness
-  num _blackness;
+  num? _blackness;
 
   /// cyan
-  num _cyan;
+  num? _cyan;
 
   /// magenta
-  num _magenta;
+  num? _magenta;
 
   /// yellow
-  num _yellow;
+  num? _yellow;
 
   /// black
-  num _black;
+  num? _black;
 
   /// Ncol
-  String _ncol;
+  String? _ncol;
 
   /// create a object of this class using the RGB values
   ///
@@ -101,9 +101,9 @@ class ColorParser {
 
   /// calculate values from RGB
   void _calculateFromRGB() {
-    List<num> hwb = _calculateHWB(_color.red, _color.green, _color.blue);
-    List<num> hsl = _calculateHSL(_color.red, _color.green, _color.blue);
-    List<num> cmyk = _calculateCMYK(_color.red, _color.green, _color.blue);
+    List<num> hwb = _calculateHWB(_color!.red, _color!.green, _color!.blue);
+    List<num> hsl = _calculateHSL(_color!.red, _color!.green, _color!.blue);
+    List<num> cmyk = _calculateCMYK(_color!.red, _color!.green, _color!.blue);
 
     _hue = num.parse(hsl[0].toStringAsFixed(0));
     _whiteness = num.parse(hwb[1].toStringAsFixed(2));
@@ -115,7 +115,7 @@ class ColorParser {
     _yellow = num.parse(cmyk[2].toStringAsFixed(2));
     _black = num.parse(cmyk[3].toStringAsFixed(2));
 
-    _ncol = _hueToNcol(_hue);
+    _ncol = _hueToNcol(_hue!);
   }
 
   /// calculate the HWB value from RGB
@@ -146,7 +146,7 @@ class ColorParser {
 
   /// calculate HSL from RGB
   List<num> _calculateHSL(int red, int green, int blue) {
-    num h, s, l;
+    num? h, s, l;
 
     List<num> rgb = [];
     rgb.add(red / 255);
@@ -176,7 +176,7 @@ class ColorParser {
       h = 4 + (rgb[0] - rgb[1]) / (max - min);
     }
 
-    if (h.isNaN) {
+    if (h!.isNaN) {
       h = 0;
     }
     h = h * 60;
@@ -245,38 +245,38 @@ class ColorParser {
   }
 
   /// get the Color
-  Color getColor() {
+  Color? getColor() {
     return _color;
   }
 
   /// get RGB
   List<int> toRGB() {
-    return [_color.red, _color.green, _color.blue];
+    return [_color!.red, _color!.green, _color!.blue];
   }
 
   /// RGB string
   String toRGBString() {
-    return "rgb(${_color.red}, ${_color.green}, ${_color.blue})";
+    return "rgb(${_color!.red}, ${_color!.green}, ${_color!.blue})";
   }
 
   /// get RGB with alpha
   List<int> toRGBA() {
-    return [_color.red, _color.green, _color.blue, _color.alpha];
+    return [_color!.red, _color!.green, _color!.blue, _color!.alpha];
   }
 
   /// RGB string with alpha
   String toRGBAString() {
-    return "rgba(${_color.red}, ${_color.green}, ${_color.blue}, ${_color.alpha})";
+    return "rgba(${_color!.red}, ${_color!.green}, ${_color!.blue}, ${_color!.alpha})";
   }
 
   /// get HWB
-  List<num> toHWB() {
+  List<num?> toHWB() {
     return [_hue, _whiteness, _blackness];
   }
 
   /// HWB string
   String toHWBString() {
-    return "hwb($_hue, ${(_whiteness * 100).round()}%, ${(_blackness * 100).round()}%)";
+    return "hwb($_hue, ${(_whiteness! * 100).round()}%, ${(_blackness! * 100).round()}%)";
   }
 
   /// HWB string decimal
@@ -285,23 +285,23 @@ class ColorParser {
   }
 
   /// get HWB with alpha
-  List<num> toHWBA() {
-    return [_hue, _whiteness, _blackness, _color.alpha];
+  List<num?> toHWBA() {
+    return [_hue, _whiteness, _blackness, _color!.alpha];
   }
 
   /// HWB string with alpha
   String toHWBAString() {
-    return "hwba($_hue, ${(_whiteness * 100).round()}%, ${(_blackness * 100).round()}%, ${_color.alpha})";
+    return "hwba($_hue, ${(_whiteness! * 100).round()}%, ${(_blackness! * 100).round()}%, ${_color!.alpha})";
   }
 
   /// get HSL
-  List<num> toHSL() {
+  List<num?> toHSL() {
     return [_hue, _sat, _lightness];
   }
 
   /// HSL string
   String toHSLString() {
-    return "hsl($_hue, ${(_sat * 100).round()}%, ${(_lightness * 100).round()}%)";
+    return "hsl($_hue, ${(_sat! * 100).round()}%, ${(_lightness! * 100).round()}%)";
   }
 
   /// HSL string decimal
@@ -310,28 +310,28 @@ class ColorParser {
   }
 
   /// get HSL with alpha
-  List<num> toHSLA() {
+  List<num?> toHSLA() {
     return [
       _hue,
       _sat,
       _lightness,
-      _color.alpha,
+      _color!.alpha,
     ];
   }
 
   /// HSL string with alpha
   String toHSLAString() {
-    return "hsla($_hue, ${(_sat * 100).round()}%, ${(_lightness * 100).round()}%, ${_color.alpha})";
+    return "hsla($_hue, ${(_sat! * 100).round()}%, ${(_lightness! * 100).round()}%, ${_color!.alpha})";
   }
 
   /// getCMYK
-  List<num> toCMYK() {
+  List<num?> toCMYK() {
     return [_cyan, _magenta, _yellow, _black];
   }
 
   /// CMYK string
   String toCMYKString() {
-    return "cmyk(${(_cyan * 100).round()}%, ${(_magenta * 100).round()}%, ${(_yellow * 100).round()}%, ${(_black * 100).round()}%)";
+    return "cmyk(${(_cyan! * 100).round()}%, ${(_magenta! * 100).round()}%, ${(_yellow! * 100).round()}%, ${(_black! * 100).round()}%)";
   }
 
   /// CMYK string decimal
@@ -340,13 +340,13 @@ class ColorParser {
   }
 
   /// get CMYK with alpha
-  List<num> toCMYKA() {
+  List<num?> toCMYKA() {
     return [
       _cyan,
       _magenta,
       _yellow,
       _black,
-      _color.alpha,
+      _color!.alpha,
     ];
   }
 
@@ -357,7 +357,7 @@ class ColorParser {
 
   /// NCOL string
   String toNcolString() {
-    return "$_ncol, ${(_whiteness * 100).round()}%, ${(_blackness * 100).round()}%";
+    return "$_ncol, ${(_whiteness! * 100).round()}%, ${(_blackness! * 100).round()}%";
   }
 
   /// NCOL string decimal
@@ -367,23 +367,23 @@ class ColorParser {
 
   /// get NCOL with alpha
   List<dynamic> toNcolA() {
-    return [_ncol, _whiteness, _blackness, _color.alpha];
+    return [_ncol, _whiteness, _blackness, _color!.alpha];
   }
 
   /// NCOL string with alpha
   String toNcolAString() {
-    return "$_ncol, ${(_whiteness * 100).round()}%, ${(_blackness * 100).round()}%, ${_color.alpha}";
+    return "$_ncol, ${(_whiteness! * 100).round()}%, ${(_blackness! * 100).round()}%, ${_color!.alpha}";
   }
 
   /// get color name
-  String toName() {
+  String? toName() {
     List<String> colorCodes = colorNames.keys.toList();
     for (String code in colorCodes) {
       num r = int.parse(code.substring(0, 2), radix: 16);
       num g = int.parse(code.substring(2, 4), radix: 16);
       num b = int.parse(code.substring(4, 6), radix: 16);
 
-      if (_color.red == r && _color.green == g && _color.blue == b) {
+      if (_color!.red == r && _color!.green == g && _color!.blue == b) {
         return colorNames[code];
       }
     }
@@ -393,7 +393,7 @@ class ColorParser {
 
   /// hex string
   String toHex() {
-    return "#${_intToHex(_color.red)}${_intToHex(_color.green)}${_intToHex(_color.blue)}";
+    return "#${_intToHex(_color!.red)}${_intToHex(_color!.green)}${_intToHex(_color!.blue)}";
   }
 
   /// convert int value to hex
