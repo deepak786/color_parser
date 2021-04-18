@@ -89,9 +89,11 @@ class _ExampleState extends State<Example> {
                         ),
                       ),
                     SizedBox(height: 5),
-                    RaisedButton(
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Theme.of(context).primaryColor,
+                      ),
                       onPressed: _parseColor,
-                      color: Theme.of(context).primaryColor,
                       child: Text(
                         "Parse Color",
                         style: TextStyle(
