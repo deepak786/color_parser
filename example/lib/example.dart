@@ -66,7 +66,7 @@ class _ExampleState extends State<Example> {
                       ),
                     ),
                     Text(
-                      "For this example I have used hex code only, but there are several options to parse the color.\ncheck the documentation.",
+                      "For this example I have used hex code only, but there are several options to parse the color.\ncheck the documentation at https://github.com/deepak786/color_parser#usage",
                       style: TextStyle(
                         fontSize: 12,
                         color: Colors.black45,
