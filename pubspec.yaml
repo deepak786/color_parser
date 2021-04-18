@@ -1,5 +1,5 @@
 name: color_parser
-description: A package to parse the color. Parse the color and then you can get different values of color such as RGB, HSL, HWB, HEXcode, color name, Ncol, etc. It is inspired by the JS library https://www.w3schools.com/lib/w3color.js
+description: A package to parse the color. It is inspired by the JS library https://www.w3schools.com/lib/w3color.js
 version: 0.0.2
 author: Deepak Goyal<er.deepakgoyal786@gmail.com>
 homepage: https://github.com/deepak786/color_parser
